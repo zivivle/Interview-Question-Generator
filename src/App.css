@@ -3,8 +3,36 @@
   background-color: #f3f4f6;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.sub-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 66%; /* Ensure it spans the full width */
+  margin-bottom: 10px;
+}
+
+.sub-button {
+  background-color: #f4baff;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sub-button:hover {
+  background-color: #f8d8fe;
+}
+
+.ladder-game-wrapper {
+  margin-top: 220px;
 }
 
 .container {
