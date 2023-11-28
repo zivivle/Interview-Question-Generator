@@ -1,23 +1,56 @@
 .ladder-game-container {
-  text-align: center;
   padding: 20px;
-  background-color: #e3f2fd; /* 연한 블루 배경 */
+  background-color: #e3f2fd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  margin: auto;
-  margin-top: 50px;
+  margin: 30px auto;
+  text-align: center;
 }
 
-.ladder-game-header {
-  color: #3d3d3ddd; /* 진한 블루 */
+.ladder-game-header h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.ladder-game-input {
+  width: 270px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-person-button {
+  padding: 10px 15px;
+  margin-left: 20px;
+  background-color: #64b8fd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.add-person-button:hover {
+  background-color: #458cd4;
+}
+
+.people-list {
   margin-bottom: 20px;
 }
 
+.person-item {
+  background-color: #d3e0ea;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .ladder-game-button {
-  background-color: #2196f3; /* 밝은 블루 */
+  background-color: #9b96e2;
   color: white;
-  font-weight: bold;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -27,7 +60,7 @@
 }
 
 .ladder-game-button:hover {
-  background-color: #1976d2; /* 더 진한 블루 */
+  background-color: rgb(158, 135, 214);
 }
 
 .ladder-game-list {
@@ -36,7 +69,7 @@
 }
 
 .ladder-game-list li {
-  background-color: #bbdefb; /* 매우 연한 블루 */
+  background-color: #d3e0ea;
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
@@ -46,14 +79,13 @@
 
 .person-number {
   font-weight: bold;
-  color: #1e88e5; /* 중간 블루 */
+  color: #256cab;
   margin-right: 10px;
 }
 
 .back-button {
-  background-color: #1565c0; /* 진한 블루 */
+  background-color: #ffc0f0;
   color: white;
-  font-weight: bold;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -62,5 +94,5 @@
 }
 
 .back-button:hover {
-  background-color: #0d47a1; /* 더 진한 블루 */
+  background-color: #c0b0bc;
 }
