@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { questions } from "./mocks/questions";
 import LadderGame from "./LadderGame/LadderGame";
 
@@ -7,21 +7,41 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [currentCategory, setCurrentCategory] = useState("");
   const [showLadderGame, setShowLadderGame] = useState(false);
+  const [remainingQuestions, setRemainingQuestions] = useState([]);
 
-  const handleRandomQuestion = async () => {
-    const categories = Object.keys(questions);
-    const randomCategory =
-      categories[Math.floor(Math.random() * categories.length)];
-    const randomQuestion =
-      questions[randomCategory][
-        Math.floor(Math.random() * questions[randomCategory].length)
-      ];
-    setCurrentQuestion(randomQuestion);
-    setCurrentCategory(randomCategory);
+  const initializeQuestions = () => {
+    const allQuestions = [];
+    Object.keys(questions).forEach((category) => {
+      questions[category].forEach((question) => {
+        allQuestions.push({ question, category });
+      });
+    });
+    return allQuestions;
+  };
+
+  useEffect(() => {
+    setRemainingQuestions(initializeQuestions());
+  }, []);
+
+  const handleRandomQuestion = () => {
+    if (remainingQuestions.length > 0) {
+      const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
+      const { question, category } = remainingQuestions[randomIndex];
+      setCurrentQuestion(question);
+      setCurrentCategory(category);
+      setRemainingQuestions((prev) =>
+        prev.filter((_, index) => index !== randomIndex)
+      );
+    } else {
+      // 모든 질문을 다시 초기화
+      setRemainingQuestions(initializeQuestions());
+      setCurrentQuestion("다음 사람 준비해주세요");
+      setCurrentCategory("");
+    }
   };
 
   const handleLadderGame = () => {
-    setShowLadderGame(true); // Set the state to show the ladder game
+    setShowLadderGame(true);
   };
 
   return (
