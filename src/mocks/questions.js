@@ -46,6 +46,13 @@ export const questions = {
     "Type Alias에 대해서 설명해주세요",
     "Interface, Class 사용과 확장",
     "tsconfig와 옵션에 대해서 아는대로 설명해주세요.",
+    "자신만의 TypeScript 초기세팅 방법이 있나요? 있다면 설명해주세요.",
+    "제네릭타입에 대해서 설명해주세요.",
+    "타입 가드에 대해서 설명해주세요.",
+    "타입 단언과 타입 호환에 대해서 설명해주세요.",
+    "export/import type을 해줘야하는 이유가 뭘까요?",
+    "sourceMap을 통한 디버깅 경험이 있으신가요?",
+    "타입 애너테이션에 대해서 설명해주세요",
   ],
   "HTML/CSS": [
     "HTML 렌더링 도중 JavaScript가 실행되면 렌더링이 멈추는 이유",
