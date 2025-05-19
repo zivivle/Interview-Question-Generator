@@ -8,6 +8,7 @@ function App() {
   const [currentCategory, setCurrentCategory] = useState("");
   const [showLadderGame, setShowLadderGame] = useState(false);
   const [remainingQuestions, setRemainingQuestions] = useState([]);
+  const [usedQuestions, setUsedQuestions] = useState([]);
 
   const initializeQuestions = () => {
     const allQuestions = [];
@@ -26,17 +27,27 @@ function App() {
   const handleRandomQuestion = () => {
     if (remainingQuestions.length > 0) {
       const randomIndex = Math.floor(Math.random() * remainingQuestions.length);
-      const { question, category } = remainingQuestions[randomIndex];
-      setCurrentQuestion(question);
-      setCurrentCategory(category);
+      const selectedQuestion = remainingQuestions[randomIndex];
+
+      setCurrentQuestion(selectedQuestion.question);
+      setCurrentCategory(selectedQuestion.category);
+
+      // 사용된 질문을 usedQuestions에 추가
+      setUsedQuestions((prev) => [...prev, selectedQuestion]);
+
+      // 남은 질문에서 선택된 질문 제거
       setRemainingQuestions((prev) =>
         prev.filter((_, index) => index !== randomIndex)
       );
     } else {
-      // 모든 질문을 다시 초기화
-      setRemainingQuestions(initializeQuestions());
-      setCurrentQuestion("다음 사람 준비해주세요");
-      setCurrentCategory("");
+      // 모든 질문이 사용되었을 때
+      if (usedQuestions.length > 0) {
+        // 사용된 질문들을 다시 remainingQuestions로 이동
+        setRemainingQuestions([...usedQuestions]);
+        setUsedQuestions([]);
+        setCurrentQuestion("모든 질문이 끝났습니다. 다시 시작합니다.");
+        setCurrentCategory("");
+      }
     }
   };
 
@@ -60,6 +71,9 @@ function App() {
             </button>
             <p className="question-title">{currentCategory}</p>
             <p className="question">{currentQuestion}</p>
+            <p className="remaining-count">
+              남은 질문: {remainingQuestions.length}개
+            </p>
           </div>
         </div>
       ) : (
