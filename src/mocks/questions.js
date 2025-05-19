@@ -33,7 +33,7 @@ export const questions = {
     "웹 프로토콜이란?",
     "JWT란?",
     "MVC와 MVVM 패턴의 차이를 설명해주세요.",
-    "OOP (Object Oriented Programming)란 무엇인가요?",
+    // "OOP (Object Oriented Programming)란 무엇인가요?",
     "Git을 사용해보셨나요? Git에 대해 아는 것을 말해보세요.",
     "깊은복사와 얕은복사의 차이점을 말해주세요.",
     "크로스 브라우징이란?",
